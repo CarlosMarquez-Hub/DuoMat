@@ -1,0 +1,41 @@
+import 'package:flutter/material.dart';
+import 'login_screen.dart';
+import 'register_screen.dart';
+import 'recover_screen.dart';
+
+void main() {
+  runApp(const DuoMat());
+}
+
+class DuoMat extends StatelessWidget {
+  const DuoMat({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Counter',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+
+      //Solo quita la cinta que llevaba arriba y ya XD, la rojita
+      debugShowCheckedModeBanner: false,
+
+      //Es la primeroa pantalla con la que debe de arrancar el programa
+      initialRoute: '/',
+
+      //es un mapa que va guardando las direcciones que debe de enviar, fue lo que yo entendi
+      routes: {
+        '/': (context) => const LoginScreen(),
+
+        //El '/registro' Va ser la dirrecion que quieres guardar
+        //El (context) => Es lo que le dice a flutter que debe de cargar el codigo,
+        // El const RegisterScreen(), Ya es lo que mandas a llamar o lo que regresas con el context
+        '/registro': (context) => const RegisterScreen(),
+
+        '/recuperar': (context) => const RecoverScreen(),
+      },
+    );
+  }
+}

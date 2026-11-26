@@ -1,0 +1,35 @@
+import 'package:flutter/material.dart';
+
+// 1. El Widget (lo que importas y llamas desde las rutas)
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({super.key});
+
+  @override
+  State<RegisterScreen> createState() => _RegisterScreenState();
+}
+
+// 2. El Estado (aquí van tus variables, funciones y el build)
+class _RegisterScreenState extends State<RegisterScreen> {
+  // Aquí declaras variables que cambian o tus TextEditingController
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      // Tu diseño y botones van exactamente igual que antes
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ElevatedButton(
+            onPressed: () {
+              //al momento de usar Navigator es el que administra todas las pantallas
+              //el context es la ubicacion actual
+              //al momento de usar el pop lo que hace es quitar la pantalla atras y regresarla a la pila
+              Navigator.pop(context);
+            },
+            child: const Text('Regresar'),
+          ),
+        ],
+      ),
+    );
+  }
+}
